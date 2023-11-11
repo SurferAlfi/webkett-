@@ -42,7 +42,7 @@
     <div class="message">
         Üdvözlünk! Sikeresen bejelentkeztél.
     </div>
-    <a href="logout.php" class="logout">Kijelentkezés</a>
+    <a href="index.php" class="logout">Kijelentkezés</a>
 </div>
 
 </body>
