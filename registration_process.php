@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 $servername = "localhost";
 $username = "root";
@@ -60,4 +59,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
->>>>>>> 2411aae4ae656e5090ecee4c98056ebf0dc8245a
+
