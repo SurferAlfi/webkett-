@@ -1,7 +1,28 @@
+<div class="header">
+<?php
+session_start();
+
+// Ellenőrizze, hogy a felhasználó be van-e jelentkezve
+if(isset($_SESSION['username'])) {
+    $loggedInUser = $_SESSION['username'];
+    // Itt megjelenítheted a fejlécben a felhasználó nevét
+    echo "Bejelentkezett: $loggedInUser";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Üdvözlünk!</title>
+<style>
+    /* ... További stílusok ... */
+    .header {
+        text-align: center;
+        padding: 20px;
+        background-color: #3f51b5;
+        color: white;
+    }
+</style>
+    
+<title>Üdvözlünk!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
