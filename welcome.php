@@ -1,12 +1,41 @@
 <div class="header">
 <?php
 session_start();
+include_once('db_connection.php');
 
 // Ellenőrizze, hogy a felhasználó be van-e jelentkezve
 if(isset($_SESSION['username'])) {
     $loggedInUser = $_SESSION['username'];
     // Itt megjelenítheted a fejlécben a felhasználó nevét
     echo "Bejelentkezett: $loggedInUser";
+}
+?>
+<?php
+session_start();
+include_once('db_connection.php'); // Adj hozzá egy fájlt, ami tartalmazza az adatbázis kapcsolódás kódját
+
+if(isset($_SESSION['username'])) {
+    $loggedInUser = $_SESSION['username'];
+    echo "Bejelentkezett: $loggedInUser";
+
+    // Megjeleníti a híreket és véleményeket
+    $sql = "SELECT news.*, users.username FROM news JOIN users ON news.user_id = users.id ORDER BY news.created_at DESC";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "<div>";
+            echo "<h2>{$row['title']}</h2>";
+            echo "<p>{$row['content']}</p>";
+            echo "<p>Létrehozva: {$row['created_at']} by {$row['username']}</p>";
+            echo "</div>";
+        }
+    } else {
+        echo "Nincs még hír vagy vélemény.";
+    }
+} else {
+    header("Location: index.php");
+    exit();
 }
 ?>
 <!DOCTYPE html>
