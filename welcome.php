@@ -4,6 +4,13 @@
 session_start();
 
 include_once('db_connection.php');
+include_once('user.php');
+
+$db = new Database("localhost", "root", "", "mcisti");
+$conn = $db->getConnection();
+
+$user = new User($conn);
+
 
 if(isset($_SESSION['username'])) {
     $loggedInUser = $_SESSION['username'];
