@@ -15,7 +15,7 @@ if(isset($_SESSION['username'])) {
 <style>
     /* ... További stílusok ... */
     .header {
-        text-align: center;
+        text-align: left;
         padding: 20px;
         background-color: #3f51b5;
         color: white;
