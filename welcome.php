@@ -1,18 +1,9 @@
 <div class="header">
-<?php
-session_start();
-include_once('db_connection.php');
 
-// Ellenőrizze, hogy a felhasználó be van-e jelentkezve
-if(isset($_SESSION['username'])) {
-    $loggedInUser = $_SESSION['username'];
-    // Itt megjelenítheted a fejlécben a felhasználó nevét
-    echo "Bejelentkezett: $loggedInUser";
-}
-?>
 <?php
 session_start();
-include_once('db_connection.php'); // Adj hozzá egy fájlt, ami tartalmazza az adatbázis kapcsolódás kódját
+
+include_once('db_connection.php');
 
 if(isset($_SESSION['username'])) {
     $loggedInUser = $_SESSION['username'];
@@ -31,7 +22,7 @@ if(isset($_SESSION['username'])) {
             echo "</div>";
         }
     } else {
-        echo "Nincs még hír vagy vélemény.";
+        echo "<br>  Nincs még hír vagy vélemény.";
     }
 } else {
     header("Location: index.php");
